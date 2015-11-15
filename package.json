@@ -1,0 +1,41 @@
+{
+  "name": "src-kit",
+  "version": "0.0.1",
+  "description": "Src-Kit is a frontend devkit basis",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marvinhuebner/src-kit"
+  },
+  "keywords": [
+    "frontend",
+    "devkit",
+    "scss",
+    "js"
+  ],
+  "author": {
+    "name": "Marvin Hübner"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/marvinhuebner/src-kit/blob/master/LICENSE",
+  "dependencies": {
+    "browser-sync": "^2.8.2",
+    "gulp-autoprefixer": "^1.0.1",
+    "gulp-cli": "^0.2.0",
+    "gulp-concat": "^2.2.0",
+    "gulp-consolidate": "^0.1.2",
+    "gulp-favicons": "^1.0.9",
+    "gulp-iconfont": "^1.0.0",
+    "gulp-plumber": "^0.6.3",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^2.0.3",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^0.3.1",
+    "gulp-watch": "^0.6.8",
+    "lodash": "^3.10.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-favicons": "^1.0.9",
+    "path": "^0.11.14"
+  }
+}
