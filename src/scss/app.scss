@@ -1,0 +1,31 @@
+//
+// app.scss
+// compile all files together
+// ------------------------------------------------------
+
+//
+// Import the basic files
+// ------------------------------------------------------
+
+@import
+// Foundation
+"lib/foundation/settings",
+"lib/foundation/foundation",
+
+// Own basics
+"custom/components/functions",
+"custom/components/mixins";
+
+//
+// Import libs
+// ------------------------------------------------------
+
+//@import
+//"lib/slick";
+
+//
+// Import project custom files
+// ------------------------------------------------------
+
+@import
+"custom/global";
