@@ -17,7 +17,8 @@
   },
   "license": "MIT",
   "homepage": "https://github.com/marvinhuebner/src-kit/blob/master/LICENSE",
-  "dependencies": {
+  "devDependencies": {
+    "gulp": "^3.8.11",
     "browser-sync": "^2.8.2",
     "gulp-autoprefixer": "^1.0.1",
     "gulp-cli": "^0.2.0",
@@ -33,9 +34,7 @@
     "gulp-watch": "^0.6.8",
     "lodash": "^3.10.0"
   },
-  "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-favicons": "^1.0.9",
+  "dependencies": {
     "path": "^0.11.14"
   }
 }

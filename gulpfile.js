@@ -10,8 +10,8 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
-    //favicons = require('gulp-favicons'),
-    browserSync = require('browser-sync').create();
+    //favicons = require('gulp-favicons');
+    //browserSync = require('browser-sync').create();
 
 var sourcePath = 'src/';
 var destinationPath = 'dist/';
@@ -53,14 +53,14 @@ var defaultTasks = [
     'styles',
     'scripts',
     'watch'
-    'browserSync'
+    //'browserSync'
 ];
 
 gulp.task('styles', stylesTask);
 gulp.task('scripts', scriptsTask);
 gulp.task('icons', iconsTask);
 //gulp.task('favicon', faviconTask);
-gulp.task('browserSync', browserSync);
+//gulp.task('browserSync', browserSync);
 gulp.task('watch', watchTask);
 
 gulp.task('default', defaultTasks);
@@ -70,13 +70,13 @@ function watchTask() {
     gulp.watch(jsFilesApp, ['scripts']);
 }
 
-function browserSync() {
-    gulp.task('browser-sync', function() {
-        browserSync.init({
-            proxy: "src-kit.local"
-        });
-    });
-};
+//function browserSync() {
+//    gulp.task('browser-sync', function() {
+//        browserSync.init({
+//            proxy: "src-kit.local"
+//        });
+//    });
+//};
 
 function stylesTask() {
     var compileStyles = function (baseName) {
@@ -154,4 +154,3 @@ function iconsTask() {
 //        }))
 //        .pipe(gulp.dest(destinationPath + 'assets/favicon'));
 //}
-
