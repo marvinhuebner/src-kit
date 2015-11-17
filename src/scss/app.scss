@@ -7,14 +7,17 @@
 // Import the basic files
 // ------------------------------------------------------
 
-@import
 // Foundation
-"lib/foundation/settings",
-"lib/foundation/foundation",
+@import "lib/foundation/settings";
+@import "lib/foundation/foundation";
+
+// Foundation Compontens
+@include foundation-everything;
+
 
 // Own basics
-"custom/components/functions",
-"custom/components/mixins";
+@import "custom/components/functions";
+@import "custom/components/mixins";
 
 //
 // Import libs
@@ -27,5 +30,4 @@
 // Import project custom files
 // ------------------------------------------------------
 
-@import
-"custom/global";
+@import "custom/global";

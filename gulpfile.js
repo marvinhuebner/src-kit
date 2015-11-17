@@ -9,9 +9,8 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
-    sourcemaps = require('gulp-sourcemaps'),
+    sourcemaps = require('gulp-sourcemaps');
     //favicons = require('gulp-favicons');
-    //browserSync = require('browser-sync').create();
 
 var sourcePath = 'src/';
 var destinationPath = 'dist/';
@@ -53,15 +52,13 @@ var defaultTasks = [
     'styles',
     'scripts',
     'watch'
-    //'browserSync'
 ];
 
 gulp.task('styles', stylesTask);
 gulp.task('scripts', scriptsTask);
 gulp.task('icons', iconsTask);
-//gulp.task('favicon', faviconTask);
-//gulp.task('browserSync', browserSync);
 gulp.task('watch', watchTask);
+//gulp.task('favicon', faviconTask);
 
 gulp.task('default', defaultTasks);
 
@@ -69,14 +66,6 @@ function watchTask() {
     gulp.watch(sourcePath + 'scss/**/*.scss', ['styles']);
     gulp.watch(jsFilesApp, ['scripts']);
 }
-
-//function browserSync() {
-//    gulp.task('browser-sync', function() {
-//        browserSync.init({
-//            proxy: "src-kit.local"
-//        });
-//    });
-//};
 
 function stylesTask() {
     var compileStyles = function (baseName) {
@@ -96,10 +85,11 @@ function scriptsTask() {
     var compileScripts = function (files, targetFile) {
         gulp.src(files)
             .pipe(plumber())
+            .pipe(sourcemaps.init())
             .pipe(concat(targetFile + '.js'))
-            .pipe(gulp.dest('js'))
             .pipe(uglify())
             .pipe(rename({suffix: '.min'}))
+            .pipe(sourcemaps.write('./'))
             .pipe(gulp.dest(destinationPath + 'js'));
     };
 
