@@ -1,3 +1,3 @@
 # src-kit
 
-starter front-end devkit
+src-kit is a frontend devkit
