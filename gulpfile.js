@@ -9,8 +9,8 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
-    sourcemaps = require('gulp-sourcemaps');
-    //favicons = require('gulp-favicons');
+    sourcemaps = require('gulp-sourcemaps'),
+    favicons = require('gulp-favicons');
 
 var sourcePath = 'src/';
 var destinationPath = 'dist/';
@@ -70,7 +70,7 @@ gulp.task('styles', stylesTask);
 gulp.task('scripts', scriptsTask);
 gulp.task('icons', iconsTask);
 gulp.task('watch', watchTask);
-//gulp.task('favicon', faviconTask);
+gulp.task('favicon', faviconTask);
 
 gulp.task('default', defaultTasks);
 
@@ -128,31 +128,31 @@ function iconsTask() {
 }
 
 
-//function faviconTask() {
-//    gulp.src([sourcePath + 'assets/favicon/favicon.png'])
-//        .pipe(favicons({
-//            files: {
-//                src: sourcePath + 'assets/favicon/favicon.png',
-//                dest: destinationPath + 'assets/favicon',
-//                iconsPath: '/Icons/',
-//                html: '/dev/null'
-//            },
-//            icons: {
-//                android: true,
-//                appleIcon: true,
-//                appleStartup: false,
-//                coast: true,
-//                favicons: true,
-//                firefox: true,
-//                opengraph: true,
-//                windows: false,
-//                yandex: false
-//            },
-//            settings: {
-//                logging: false,
-//                vinylMode: true,
-//                background: false
-//            }
-//        }))
-//        .pipe(gulp.dest(destinationPath + 'assets/favicon'));
-//}
+function faviconTask() {
+    gulp.src([sourcePath + 'assets/favicon/favicon.png'])
+        .pipe(favicons({
+            files: {
+                src: sourcePath + 'assets/favicon/favicon.png',
+                dest: destinationPath + 'assets/favicon',
+                iconsPath: '/Icons/',
+                html: '/dev/null'
+            },
+            icons: {
+                android: true,
+                appleIcon: true,
+                appleStartup: false,
+                coast: true,
+                favicons: true,
+                firefox: true,
+                opengraph: true,
+                windows: false,
+                yandex: false
+            },
+            settings: {
+                logging: false,
+                vinylMode: true,
+                background: false
+            }
+        }))
+        .pipe(gulp.dest(destinationPath + 'assets/favicon'));
+}
