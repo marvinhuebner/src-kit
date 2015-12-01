@@ -20,5 +20,10 @@
     "src/components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "foundation-sites": "~6.0.4",
+    "slick-carousel": "~1.5.9",
+    "jquery": "1.11.3"
+  }
 }
