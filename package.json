@@ -13,12 +13,12 @@
     "js"
   ],
   "author": {
-    "name": "Marvin Hübner"
+    "name": "Marvin Hübner <marvin@marvinhuebner.com>"
   },
   "license": "MIT",
   "homepage": "https://github.com/marvinhuebner/src-kit/blob/master/LICENSE",
   "devDependencies": {
-    "gulp": "^3.8.11",
+    "gulp": "^3.9.0",
     "gulp-autoprefixer": "^1.0.1",
     "gulp-cli": "^0.2.0",
     "gulp-concat": "^2.2.0",
