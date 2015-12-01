@@ -12,43 +12,44 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     favicons = require('gulp-favicons');
 
-
 var environment = 'src-kit';
 
 switch (environment) {
     case 'src-kit':
-        var sourcePath = 'src/';
-        var destinationPath = 'dist/';
+        var config = [
+            sourcePath = 'src/',
+            destinationPath = 'dist/'
+        ];
         break;
 
     case 'typo3':
-        var sourcePath = 'Resourcess/Private/src/';
-        var destinationPath = 'Resourcess/Public/';
+        var config = [
+            sourcePath = 'Resourcess/Private/src/',
+            destinationPath = 'Resourcess/Public/'
+        ];
         break;
 }
-
 
 var jsFilesApp = [
 
     // Jquery
-    sourcePath + 'bower-components/jquery/dist/jquery.min.js',
+    //sourcePath + 'bower-components/jquery/dist/jquery.min.js',
 
     // Fastclick
-    // sourcePath + '',
+    //sourcePath + 'bower-components/fastclick/lib/fastclick.js',
 
     // Picturefill
-    // sourcePath + '',
+    //sourcePath + 'bower-components/picturefill/dist/picturefill.js',
 
     // SSM
-    // sourcePath + '',
+    //sourcePath + 'bower-components/SimpleStateManager/src/ssm.js',
 
     // Slick
-    // sourcePath + '',
+    //sourcePath + 'bower-components/slick-carousel/slick/slick.min.js',
 
     // SinglePageNav
-    // sourcePath + '',
-
-
+    //sourcePath + 'bower-components/single-page-nav/jquery.singlePageNav.js',
+    
     // Foundation
     // sourcePath + 'bower-components/foundation-sites/js/foundation.core.js',
 
