@@ -14,16 +14,18 @@ var gulp = require('gulp'),
 
 var environment = 'src-kit';
 
+var config;
+
 switch (environment) {
     case 'src-kit':
-        var config = [
+        config = [
             sourcePath = 'src/',
             destinationPath = 'dist/'
         ];
         break;
 
     case 'typo3':
-        var config = [
+        config = [
             sourcePath = 'Resourcess/Private/src/',
             destinationPath = 'Resourcess/Public/'
         ];
