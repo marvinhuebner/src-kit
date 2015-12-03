@@ -142,7 +142,7 @@ function iconsTask() {
             appendCodepoints: true
         }))
         .on('codepoints', function (codepoints, options) {
-            gulp.src(sourcePath + 'scss/template/_icons.scss')
+            gulp.src(sourcePath + 'scss/templates/_icons.scss')
                 .pipe(consolidate('lodash', {
                     glyphs: codepoints,
                     fontName: 'icon',
