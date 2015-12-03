@@ -1,3 +1,31 @@
+@mixin text-rendering() {
+   -webkit-text-size-adjust: none !important;
+   text-rendering: optimizeLegibility;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin text-highlighting($background, $color) {
+   ::selection {background: $background; color: $color;}
+   ::-moz-selection {background: $background; color: $color;}
+}
+
+@mixin text-shadow($value) {
+   text-shadow: $value;
+   -webkit-text-shadow: $value;
+   -moz-text-shadow: $value;
+   -ms-text-shadow: $value;
+   -o-text-shadow: $value;
+}
+
+@mixin box-shadow($value) {
+   box-shadow: $value;
+   -webkit-box-shadow: $value;
+   -moz-box-shadow: $value;
+   -ms-box-shadow: $value;
+   -o-box-shadow: $value;
+}
+
 @mixin transition($transition) {
    -webkit-transition: $transition;
    -moz-transition: $transition;
