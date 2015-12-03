@@ -1,4 +1,4 @@
-<?php include_once('_variables.php'); ?>
+<?php include_once('var.php'); ?>
 
 <!DOCTYPE html>
 <html>
