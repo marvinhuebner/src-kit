@@ -118,6 +118,8 @@ function stylesTask() {
     };
 
     compileStyles('app');
+    compileStyles('rte');
+    compileStyles('print');
 }
 
 function scriptsTask() {
