@@ -1,8 +1,10 @@
-@import "../bower-components/foundation-sites/scss/foundation";
+@import "../bower_components/foundation-sites/scss/foundation";
 
 @import "settings";
 
-@import "util/util";
+@include foundation-everything();
+
+@import "utility/utility";
 @import "generated/generated";
 @import "typography/typography";
 @import "components/components";

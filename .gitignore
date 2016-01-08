@@ -4,4 +4,4 @@
 .DS_Store
 .zip
 node_modules
-bower-components
+bower_components
