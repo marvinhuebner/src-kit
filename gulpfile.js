@@ -12,6 +12,7 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     favicons = require('gulp-favicons');
 
+
 var environment = 'src-kit';
 
 var config;
@@ -136,18 +137,20 @@ function scriptsTask() {
     compileScripts(jsFilesApp, 'app');
 }
 
+
 function iconsTask() {
     gulp.src([sourcePath + 'assets/svg/use/*.svg'])
         .pipe(iconfont({
             fontName: 'icon',
-            appendCodepoints: true
+            appendCodepoints: true,
+            appendUnicode: true
         }))
-        .on('codepoints', function (codepoints, options) {
+        .on('glyphs', function (glyphs, options) {
             gulp.src(sourcePath + 'scss/templates/_icons.scss')
                 .pipe(consolidate('lodash', {
-                    glyphs: codepoints,
+                    glyphs: glyphs,
                     fontName: 'icon',
-                    fontPath: '..fonts/generated/',
+                    fontPath: '../fonts/generated/',
                     className: 'icon'
                 }))
                 .pipe(gulp.dest(sourcePath + 'scss/generated'));
