@@ -1,6 +1,5 @@
-<?php include('partials/header.php') ?>
+<?php
 
-<?php include('layouts/page-index.php') ?>
+require_once 'var.php';
 
-<?php include('partials/footer.php') ?>
-
+renderPage('index');
