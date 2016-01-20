@@ -21,7 +21,7 @@ switch (environment) {
     case 'src-kit':
         config = [
             sourcePath = 'src/',
-            destinationPath = 'html/dist/'
+            destinationPath = 'public/dist/'
         ];
         break;
 
