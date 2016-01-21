@@ -2,7 +2,7 @@
 <html>
 <head lang="de">
     <meta charset="UTF-8">
-    <title>Jagdschutz- und Jägerverein Kulmbach e.V.</title>
+    <title>src-kit</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo Config::css ?>app.min.css"/>
