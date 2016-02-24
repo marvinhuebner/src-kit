@@ -1,18 +1,9 @@
-var gulp = require('gulp');
 var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
 var rename = require('gulp-rename');
 
 gulp.task('styles', stylesTask);
-
-/**
- * change the output style from the compiled css and js
- * normal output: normal
- * minified output: minified
- */
-
-var output = 'normal';
 
 function stylesTask() {
     var compileStyles = function (baseName) {
