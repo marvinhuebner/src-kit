@@ -1,25 +1,6 @@
 // Gulp Modules
-var gulp = require('gulp'),
-    iconfont = require('gulp-iconfont'),
-    consolidate = require('gulp-consolidate'),
-    uglify = require('gulp-uglify'),
-    concat = require('gulp-concat'),
-    path = require('path'),
-    watch = require('gulp-watch'),
-    plumber = require('gulp-plumber'),
-    rename = require('gulp-rename'),
-    sass = require('gulp-sass'),
-    sourcemaps = require('gulp-sourcemaps'),
-    favicons = require('gulp-favicons');
-
-
-/**
- * change the output style from the compiled css and js
- * normal output: normal
- * minified output: minified
- */
-
-var output = 'normal';
+var gulp = require('gulp');
+var requireDir = require('require-dir');
 
 /**
  *  change the destination paths
@@ -100,127 +81,133 @@ var jsFilesApp = [
     sourcePath + 'js/**/*.js'
 ];
 
+requireDir('gulp');
+
+
 var defaultTasks = [
     'styles',
-    'scripts',
+    //'scripts',
     'watch'
 ];
 
 gulp.task('default', defaultTasks);
-gulp.task('watch', watchTask);
-gulp.task('styles', stylesTask);
-gulp.task('scripts', scriptsTask);
-gulp.task('icons', iconsTask);
-gulp.task('favicon', faviconTask);
-
-function watchTask() {
-    gulp.watch(sourcePath + 'scss/**/*.scss', ['styles']);
-    gulp.watch(jsFilesApp, ['scripts']);
-}
-
-function stylesTask() {
-    var compileStyles = function (baseName) {
-        switch (output) {
-            case 'normal':
-                gulp.src([sourcePath + 'scss/' + baseName + '.scss'])
-                    .pipe(plumber())
-                    .pipe(sourcemaps.init())
-                    .pipe(sass({outputStyle: 'expanded'}))
-                    .pipe(sourcemaps.write('./'))
-                    .pipe(gulp.dest(destinationPath + 'css'));
-                break;
-            case 'minified':
-                gulp.src([sourcePath + 'scss/' + baseName + '.scss'])
-                    .pipe(plumber())
-                    .pipe(sourcemaps.init())
-                    .pipe(sass({outputStyle: 'compressed'}))
-                    .pipe(rename({suffix: '.min'}))
-                    .pipe(sourcemaps.write('./'))
-                    .pipe(gulp.dest(destinationPath + 'css'));
-                break;
-        }
-    };
-
-    compileStyles('app');
-    compileStyles('rte');
-    compileStyles('print');
-}
-
-function scriptsTask() {
-    var compileScripts = function (files, targetFile) {
-
-        switch(output) {
-            case 'normal':
-                gulp.src(files)
-                    .pipe(plumber())
-                    .pipe(sourcemaps.init())
-                    .pipe(concat(targetFile + '.js'))
-                    .pipe(sourcemaps.write('./'))
-                    .pipe(gulp.dest(destinationPath + 'js'));
-                break;
-            case 'minified':
-                gulp.src(files)
-                    .pipe(plumber())
-                    .pipe(sourcemaps.init())
-                    .pipe(concat(targetFile + '.js'))
-                    .pipe(uglify())
-                    .pipe(rename({suffix: '.min'}))
-                    .pipe(sourcemaps.write('./'))
-                    .pipe(gulp.dest(destinationPath + 'js'));
-                break;
-        }
-    };
-
-    compileScripts(jsFilesApp, 'app');
-}
 
 
-function iconsTask() {
-    gulp.src([sourcePath + 'assets/svg/use/*.svg'])
-        .pipe(iconfont({
-            fontName: 'icon',
-            appendCodepoints: true,
-            appendUnicode: true
-        }))
-        .on('glyphs', function (glyphs, options) {
-            gulp.src(sourcePath + 'scss/templates/_icons.scss')
-                .pipe(consolidate('lodash', {
-                    glyphs: glyphs,
-                    fontName: 'icon',
-                    fontPath: '../fonts/generated/',
-                    className: 'icon'
-                }))
-                .pipe(gulp.dest(sourcePath + 'scss/generated'));
-        })
-        .pipe(gulp.dest(destinationPath + 'fonts/generated'));
-}
 
+//gulp.task('watch', watchTask);
+//gulp.task('styles', stylesTask);
+//gulp.task('scripts', scriptsTask);
+//gulp.task('icons', iconsTask);
+//gulp.task('favicon', faviconTask);
 
-function faviconTask() {
-    gulp.src([sourcePath + 'assets/favicon/favicon.png'])
-        .pipe(favicons({
-            files: {
-                src: sourcePath + 'assets/favicon/favicon.png',
-                dest: destinationPath + 'assets/favicon',
-                iconsPath: '/Icons/',
-                html: '/dev/null'
-            },
-            icons: {
-                android: true,
-                appleIcon: true,
-                appleStartup: false,
-                coast: true,
-                favicons: true,
-                firefox: true,
-                opengraph: true,
-                windows: false,
-                yandex: false
-            },
-            settings: {
-                logging: false,
-                vinylMode: true,
-                background: false
-            }
-        }))
-        .pipe(gulp.dest(destinationPath + 'assets/favicon'));
-}
+//function watchTask() {
+//    gulp.watch(sourcePath + 'scss/**/*.scss', ['styles']);
+//    gulp.watch(jsFilesApp, ['scripts']);
+//}
+
+//function stylesTask() {
+//    var compileStyles = function (baseName) {
+//        switch (output) {
+//            case 'normal':
+//                gulp.src([sourcePath + 'scss/' + baseName + '.scss'])
+//                    .pipe(plumber())
+//                    .pipe(sourcemaps.init())
+//                    .pipe(sass({outputStyle: 'expanded'}))
+//                    .pipe(sourcemaps.write('./'))
+//                    .pipe(gulp.dest(destinationPath + 'css'));
+//                break;
+//            case 'minified':
+//                gulp.src([sourcePath + 'scss/' + baseName + '.scss'])
+//                    .pipe(plumber())
+//                    .pipe(sourcemaps.init())
+//                    .pipe(sass({outputStyle: 'compressed'}))
+//                    .pipe(rename({suffix: '.min'}))
+//                    .pipe(sourcemaps.write('./'))
+//                    .pipe(gulp.dest(destinationPath + 'css'));
+//                break;
+//        }
+//    };
+//
+//    compileStyles('app');
+//    compileStyles('rte');
+//    compileStyles('print');
+//}
+
+//function scriptsTask() {
+//    var compileScripts = function (files, targetFile) {
+//
+//        switch(output) {
+//            case 'normal':
+//                gulp.src(files)
+//                    .pipe(plumber())
+//                    .pipe(sourcemaps.init())
+//                    .pipe(concat(targetFile + '.js'))
+//                    .pipe(sourcemaps.write('./'))
+//                    .pipe(gulp.dest(destinationPath + 'js'));
+//                break;
+//            case 'minified':
+//                gulp.src(files)
+//                    .pipe(plumber())
+//                    .pipe(sourcemaps.init())
+//                    .pipe(concat(targetFile + '.js'))
+//                    .pipe(uglify())
+//                    .pipe(rename({suffix: '.min'}))
+//                    .pipe(sourcemaps.write('./'))
+//                    .pipe(gulp.dest(destinationPath + 'js'));
+//                break;
+//        }
+//    };
+//
+//    compileScripts(jsFilesApp, 'app');
+//}
+
+//
+//function iconsTask() {
+//    gulp.src([sourcePath + 'assets/svg/use/*.svg'])
+//        .pipe(iconfont({
+//            fontName: 'icon',
+//            appendCodepoints: true,
+//            appendUnicode: true
+//        }))
+//        .on('glyphs', function (glyphs, options) {
+//            gulp.src(sourcePath + 'scss/templates/_icons.scss')
+//                .pipe(consolidate('lodash', {
+//                    glyphs: glyphs,
+//                    fontName: 'icon',
+//                    fontPath: '../fonts/generated/',
+//                    className: 'icon'
+//                }))
+//                .pipe(gulp.dest(sourcePath + 'scss/generated'));
+//        })
+//        .pipe(gulp.dest(destinationPath + 'fonts/generated'));
+//}
+//
+//
+//function faviconTask() {
+//    gulp.src([sourcePath + 'assets/favicon/favicon.png'])
+//        .pipe(favicons({
+//            files: {
+//                src: sourcePath + 'assets/favicon/favicon.png',
+//                dest: destinationPath + 'assets/favicon',
+//                iconsPath: '/Icons/',
+//                html: '/dev/null'
+//            },
+//            icons: {
+//                android: true,
+//                appleIcon: true,
+//                appleStartup: false,
+//                coast: true,
+//                favicons: true,
+//                firefox: true,
+//                opengraph: true,
+//                windows: false,
+//                yandex: false
+//            },
+//            settings: {
+//                logging: false,
+//                vinylMode: true,
+//                background: false
+//            }
+//        }))
+//        .pipe(gulp.dest(destinationPath + 'assets/favicon'));
+//}
