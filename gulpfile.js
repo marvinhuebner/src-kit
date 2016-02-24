@@ -13,8 +13,20 @@ var gulp = require('gulp'),
     favicons = require('gulp-favicons');
 
 
-var environment = 'src-kit';
+/**
+ * change the output style from the compiled css and js
+ * normal output: normal
+ * minified output: minified
+ */
 
+var output = 'normal';
+
+/**
+ *  change the destination paths
+ *  use src-kit for frontend developement and typo3 for typo3 developement
+ */
+
+var environment = 'src-kit';
 var config;
 
 switch (environment) {
@@ -36,7 +48,7 @@ switch (environment) {
 var jsFilesApp = [
 
     // Jquery
-    //sourcePath + 'bower_components/jquery/dist/jquery.min.js',
+    sourcePath + 'bower_components/jquery/dist/jquery.min.js',
 
     // Fastclick
     //sourcePath + 'bower_components/fastclick/lib/fastclick.js',
@@ -108,13 +120,25 @@ function watchTask() {
 
 function stylesTask() {
     var compileStyles = function (baseName) {
-        gulp.src([sourcePath + 'scss/' + baseName + '.scss'])
-            .pipe(plumber())
-            .pipe(sourcemaps.init())
-            .pipe(sass({outputStyle: 'compressed'}))
-            .pipe(rename({suffix: '.min'}))
-            .pipe(sourcemaps.write('./'))
-            .pipe(gulp.dest(destinationPath + 'css'))
+        switch (output) {
+            case 'normal':
+                gulp.src([sourcePath + 'scss/' + baseName + '.scss'])
+                    .pipe(plumber())
+                    .pipe(sourcemaps.init())
+                    .pipe(sass({outputStyle: 'expanded'}))
+                    .pipe(sourcemaps.write('./'))
+                    .pipe(gulp.dest(destinationPath + 'css'));
+                break;
+            case 'minified':
+                gulp.src([sourcePath + 'scss/' + baseName + '.scss'])
+                    .pipe(plumber())
+                    .pipe(sourcemaps.init())
+                    .pipe(sass({outputStyle: 'compressed'}))
+                    .pipe(rename({suffix: '.min'}))
+                    .pipe(sourcemaps.write('./'))
+                    .pipe(gulp.dest(destinationPath + 'css'));
+                break;
+        }
     };
 
     compileStyles('app');
@@ -124,14 +148,27 @@ function stylesTask() {
 
 function scriptsTask() {
     var compileScripts = function (files, targetFile) {
-        gulp.src(files)
-            .pipe(plumber())
-            .pipe(sourcemaps.init())
-            .pipe(concat(targetFile + '.js'))
-            .pipe(uglify())
-            .pipe(rename({suffix: '.min'}))
-            .pipe(sourcemaps.write('./'))
-            .pipe(gulp.dest(destinationPath + 'js'));
+
+        switch(output) {
+            case 'normal':
+                gulp.src(files)
+                    .pipe(plumber())
+                    .pipe(sourcemaps.init())
+                    .pipe(concat(targetFile + '.js'))
+                    .pipe(sourcemaps.write('./'))
+                    .pipe(gulp.dest(destinationPath + 'js'));
+                break;
+            case 'minified':
+                gulp.src(files)
+                    .pipe(plumber())
+                    .pipe(sourcemaps.init())
+                    .pipe(concat(targetFile + '.js'))
+                    .pipe(uglify())
+                    .pipe(rename({suffix: '.min'}))
+                    .pipe(sourcemaps.write('./'))
+                    .pipe(gulp.dest(destinationPath + 'js'));
+                break;
+        }
     };
 
     compileScripts(jsFilesApp, 'app');
