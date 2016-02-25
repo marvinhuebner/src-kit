@@ -83,4 +83,3 @@ var config = [
         sourcePath + 'js/**/*.js'
     ]
 ];
-
