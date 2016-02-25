@@ -1,3 +1,4 @@
+var gulp = require('gulp');
 var iconfont = require('gulp-iconfont');
 var consolidate = require('gulp-consolidate');
 var path = require('path');

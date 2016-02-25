@@ -1,3 +1,4 @@
+var gulp = require('gulp');
 var favicons = require('gulp-favicons');
 
 gulp.task('favicon', faviconTask);
