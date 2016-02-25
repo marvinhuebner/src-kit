@@ -4,7 +4,7 @@ var jade = require('gulp-jade');
 gulp.task('jade', jadeTask);
 
 function jadeTask() {
-    gulp.src(sourcePath + 'jade/**/*.jade')
+    gulp.src(sourcePath + 'templates/pages/*.jade')
         .pipe(jade({
             pretty: true
         }))
