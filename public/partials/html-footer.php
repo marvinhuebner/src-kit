@@ -1,4 +1,4 @@
-<script src="<?php echo Config::js ?>app.min.js"></script>
+<script src="<?php echo Config::js ?>app.js"></script>
 
 </body>
 </html>

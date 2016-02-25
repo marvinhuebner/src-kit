@@ -5,7 +5,7 @@
     <title>src-kit</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php echo Config::css ?>app.min.css"/>
+    <link rel="stylesheet" href="<?php echo Config::css ?>app.css"/>
 
     <link rel="apple-touch-icon"
           href="<?php echo Config::favicon ?>apple-touch-icon-57x57.png"
