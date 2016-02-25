@@ -39,12 +39,7 @@
 }
 
 @mixin icon_apple() {&:before { content: "\EA01" }}
-
-
 @mixin icon_apple-after() {&:after { content: "\EA01" }}
 
-
 .icon-apple { @include icon_apple(); }
-
-
 .icon-apple-after { @include icon_apple-after(); }

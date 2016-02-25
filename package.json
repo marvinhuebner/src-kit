@@ -25,6 +25,7 @@
     "gulp-consolidate": "^0.1.2",
     "gulp-favicons": "^2.2.5",
     "gulp-iconfont": "^5.0.1",
+    "gulp-jade": "^1.1.0",
     "gulp-plumber": "^1.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.1.1",

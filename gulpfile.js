@@ -11,7 +11,8 @@ switch (environment) {
     case 'frontend':
         config = [
             sourcePath = 'src/',
-            destinationPath = 'public/dist/'
+            destinationPath = 'public/dist/',
+            jadeDestinationPath = 'public'
         ];
         break;
 
@@ -30,7 +31,7 @@ var config = [
     jsFilesApp = [
 
         // Jquery
-        sourcePath + 'bower_components/jquery/dist/jquery.min.js',
+        //sourcePath + 'bower_components/jquery/dist/jquery.min.js',
 
         // Fastclick
         //sourcePath + 'bower_components/fastclick/lib/fastclick.js',
