@@ -1,6 +1,5 @@
-gulp = require('gulp');
-var requireDir = require('require-dir');
-requireDir('gulp');
+var gulp = require('gulp');
+require('require-dir')('gulp');
 
 // adjust your development environment to customize the output paths
 // for frontend development use frontend
@@ -84,10 +83,3 @@ var config = [
     ]
 ];
 
-var defaultTasks = [
-    'styles',
-    'scripts',
-    'watch'
-];
-
-gulp.task('default', defaultTasks);
