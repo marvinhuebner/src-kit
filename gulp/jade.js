@@ -3,10 +3,15 @@ var jade = require('gulp-jade');
 
 gulp.task('jade', jadeTask);
 
+
 function jadeTask() {
-    gulp.src(sourcePath + 'templates/pages/*.jade')
-        .pipe(jade({
-            pretty: true
-        }))
-        .pipe(gulp.dest(jadeDestinationPath));
+    var compileJade = function (basePath, destPath) {
+        gulp.src(sourcePath + 'templates/' + basePath +'/*.jade')
+            .pipe(jade({
+                pretty: true
+            }))
+            .pipe(gulp.dest(destPath));
+    };
+
+    compileJade('pages', 'public');
 }

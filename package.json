@@ -3,39 +3,41 @@
   "version": "1.0.0",
   "description": "src-kit is a frontend devkit",
   "repository": {
-    "type": "git",
-    "url": "https://github.com/marvinhuebner/src-kit"
+	"type": "git",
+	"url": "https://github.com/marvinhuebner/src-kit"
   },
   "keywords": [
-    "frontend",
-    "devkit",
-    "scss",
-    "js"
+	"frontend",
+	"devkit",
+	"scss",
+	"js"
   ],
   "author": {
-    "name": "Marvin Hübner <marvin@marvinhuebner.com>"
+	"name": "Marvin Hübner <marvin@marvinhuebner.com>"
   },
   "license": "MIT",
   "homepage": "https://github.com/marvinhuebner/src-kit/blob/master/LICENSE",
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-cli": "^1.1.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-consolidate": "^0.1.2",
-    "gulp-favicons": "^2.2.5",
-    "gulp-iconfont": "^5.0.1",
-    "gulp-jade": "^1.1.0",
-    "gulp-plumber": "^1.0.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.1.1",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.5.1",
-    "gulp-watch": "^4.3.5",
-    "lodash": "^3.10.1",
-    "require-dir": "^0.3.0"
+	"gulp": "^3.9.0",
+	"gulp-autoprefixer": "^3.1.0",
+	"gulp-cli": "^1.1.0",
+	"gulp-concat": "^2.6.0",
+	"gulp-consolidate": "^0.1.2",
+	"gulp-favicons": "^2.2.5",
+	"gulp-iconfont": "^5.0.1",
+	"gulp-imagemin": "^2.4.0",
+	"gulp-jade": "^1.1.0",
+	"gulp-plumber": "^1.0.1",
+	"gulp-rename": "^1.2.2",
+	"gulp-sass": "^2.1.1",
+	"gulp-sourcemaps": "^1.6.0",
+	"gulp-uglify": "^1.5.1",
+	"gulp-watch": "^4.3.5",
+	"imagemin-pngquant": "^4.2.2",
+	"lodash": "^3.10.1",
+	"require-dir": "^0.3.0"
   },
   "dependencies": {
-    "path": "^0.12.7"
+	"path": "^0.12.7"
   }
 }
