@@ -15,8 +15,8 @@ function stylesTask() {
                     .pipe(plumber())
                     .pipe(sourcemaps.init())
                     .pipe(sass({outputStyle: 'expanded'}))
-                    .pipe(sourcemaps.write({includeContent: false}))
-                    .pipe(sourcemaps.init({loadMaps: true}))
+                    //.pipe(sourcemaps.write({includeContent: false}))
+                    //.pipe(sourcemaps.init({loadMaps: true}))
                     .pipe(autoprefixer())
                     .pipe(sourcemaps.write('./'))
                     .pipe(gulp.dest(destinationPath + 'css'));
@@ -27,8 +27,8 @@ function stylesTask() {
                     .pipe(sourcemaps.init())
                     .pipe(sass({outputStyle: 'compressed'}))
                     //.pipe(rename({suffix: '.min'}))
-                    .pipe(sourcemaps.write({includeContent: false}))
-                    .pipe(sourcemaps.init({loadMaps: true}))
+                    //.pipe(sourcemaps.write({includeContent: false}))
+                    //.pipe(sourcemaps.init({loadMaps: true}))
                     .pipe(autoprefixer())
                     .pipe(sourcemaps.write('./'))
                     .pipe(gulp.dest(destinationPath + 'css'));
