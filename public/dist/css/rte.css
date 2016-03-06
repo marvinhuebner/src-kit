@@ -1,6 +1,6 @@
 /**
  * Foundation for Sites by ZURB
- * Version 6.1.1
+ * Version 6.2.0
  * foundation.zurb.com
  * Licensed under MIT Open Source
  */
@@ -352,7 +352,7 @@ p + .stat {
   }
   pre,
   blockquote {
-    border: 1px solid #999;
+    border: 1px solid #8a8a8a;
     page-break-inside: avoid;
   }
   thead {
@@ -645,7 +645,7 @@ a.button {
   margin: 0 0 1rem 0;
   font-size: 0.9rem;
   background-color: #2199e8;
-  color: #fff;
+  color: #fefefe;
 }
 
 [data-whatinput='mouse'] a.button {
@@ -654,7 +654,7 @@ a.button {
 
 a.button:hover, a.button:focus {
   background-color: #1583cc;
-  color: #fff;
+  color: #fefefe;
 }
 
 /*# sourceMappingURL=rte.css.map */
