@@ -26,7 +26,7 @@ switch (environment) {
 
 var config = [
     // for normal output use normal, for minified output und minified
-    output = 'minified',
+    output = 'normal',
 
     jsFilesApp = [
 
