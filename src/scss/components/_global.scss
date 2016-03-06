@@ -2,3 +2,7 @@ body {
   @include text-rendering();
   @include text-highlighting(black, white);
 }
+
+.test {
+  transition: all 0.5s ease;
+}
