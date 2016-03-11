@@ -50,7 +50,6 @@ var config = [
 
         // Foundation
         //sourcePath + 'bower_components/foundation-sites/js/foundation.core.js',
-        //
         //sourcePath + 'bower_components/foundation-sites/js/foundation.util.box.js',
         //sourcePath + 'bower_components/foundation-sites/js/foundation.util.keyboard.js',
         //sourcePath + 'bower_components/foundation-sites/js/foundation.util.mediaQuery.js',
