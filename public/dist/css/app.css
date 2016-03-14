@@ -4863,9 +4863,4 @@ body ::-moz-selection {
   color: white;
 }
 
-.test {
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
 /*# sourceMappingURL=app.css.map */
