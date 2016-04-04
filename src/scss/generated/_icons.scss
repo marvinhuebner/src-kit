@@ -24,31 +24,26 @@
   -moz-osx-font-smoothing:grayscale;
 }
 
-.icon-lg {
+.icon--lg {
   font-size: 1.3333333333333333em;
   line-height: 0.75em;
   vertical-align: -15%;
 }
-.icon-2x { font-size: 2em; }
-.icon-3x { font-size: 3em; }
-.icon-4x { font-size: 4em; }
-.icon-5x { font-size: 5em; }
-.icon-fw {
+
+.icon--2x { font-size: 2em; }
+.icon--3x { font-size: 3em; }
+.icon--4x { font-size: 4em; }
+.icon--5x { font-size: 5em; }
+.icon--fw {
   width: 1.2857142857142858em;
   text-align: center;
 }
 
-@mixin icon_apple-old() {&:before { content: "\EA01" }}
-@mixin icon_apple() {&:before { content: "\EA02" }}
+@mixin icon-apple() {&:before { content: "\EA01" }}
 
 
-@mixin icon_apple-old-after() {&:after { content: "\EA01" }}
-@mixin icon_apple-after() {&:after { content: "\EA02" }}
+@mixin icon-apple--after() {&:after { content: "\EA01" }}
 
 
-.icon-apple-old { @include icon_apple-old(); }
-.icon-apple { @include icon_apple(); }
-
-
-.icon-apple-old-after { @include icon_apple-old-after(); }
-.icon-apple-after { @include icon_apple-after(); }
+.icon-apple { @include icon-apple(); }
+.icon-apple--after { @include icon-apple--after(); }

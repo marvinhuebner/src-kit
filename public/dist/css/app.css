@@ -4806,47 +4806,39 @@ table.hover tr:nth-of-type(even):hover {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-lg {
+.icon--lg {
   font-size: 1.3333333333333333em;
   line-height: 0.75em;
   vertical-align: -15%;
 }
 
-.icon-2x {
+.icon--2x {
   font-size: 2em;
 }
 
-.icon-3x {
+.icon--3x {
   font-size: 3em;
 }
 
-.icon-4x {
+.icon--4x {
   font-size: 4em;
 }
 
-.icon-5x {
+.icon--5x {
   font-size: 5em;
 }
 
-.icon-fw {
+.icon--fw {
   width: 1.2857142857142858em;
   text-align: center;
 }
 
-.icon-apple-old:before {
-  content: "\EA01";
-}
-
 .icon-apple:before {
-  content: "\EA02";
-}
-
-.icon-apple-old-after:after {
   content: "\EA01";
 }
 
-.icon-apple-after:after {
-  content: "\EA02";
+.icon-apple--after:after {
+  content: "\EA01";
 }
 
 body {
@@ -4869,6 +4861,14 @@ body ::selection {
 body ::-moz-selection {
   background: black;
   color: white;
+}
+
+.mixin-test:before {
+  content: "\EA01";
+}
+
+.mixin-test--after:before {
+  content: "\EA01";
 }
 
 /*# sourceMappingURL=app.css.map */
