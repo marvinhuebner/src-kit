@@ -1,0 +1,1 @@
+This directory is created for using the gulp-img task. If you don't use gulp-img then you can delete it.
