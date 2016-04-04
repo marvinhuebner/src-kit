@@ -38,8 +38,17 @@
   text-align: center;
 }
 
-@mixin icon_apple() {&:before { content: "\EA01" }}
-@mixin icon_apple-after() {&:after { content: "\EA01" }}
+@mixin icon_apple-old() {&:before { content: "\EA01" }}
+@mixin icon_apple() {&:before { content: "\EA02" }}
 
+
+@mixin icon_apple-old-after() {&:after { content: "\EA01" }}
+@mixin icon_apple-after() {&:after { content: "\EA02" }}
+
+
+.icon-apple-old { @include icon_apple-old(); }
 .icon-apple { @include icon_apple(); }
+
+
+.icon-apple-old-after { @include icon_apple-old-after(); }
 .icon-apple-after { @include icon_apple-after(); }

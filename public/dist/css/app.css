@@ -4833,12 +4833,20 @@ table.hover tr:nth-of-type(even):hover {
   text-align: center;
 }
 
+.icon-apple-old:before {
+  content: "\EA01";
+}
+
 .icon-apple:before {
+  content: "\EA02";
+}
+
+.icon-apple-old-after:after {
   content: "\EA01";
 }
 
 .icon-apple-after:after {
-  content: "\EA01";
+  content: "\EA02";
 }
 
 body {
