@@ -851,4 +851,5 @@ define(function(){return FastClick;});}else if(typeof module!=='undefined'&&modu
 }if(currentBreakpoint=='xlarge'){ // your code
 }if(currentBreakpoint=='xxlarge'){ // your code
 }});
+'use strict';$(document).ready(function(){});function setAnchorActive(){var getPath=window.location.pathname;var path=getPath.replace('/','');$('nav a').each(function(){var anchor=$(this);var getHref=anchor.attr('href');if(path==getHref){anchor.addClass('active');}});}
 //# sourceMappingURL=app.js.map
