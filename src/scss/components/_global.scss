@@ -1,12 +1,12 @@
 body {
-  @include text-rendering();
-  @include text-highlighting(black, white);
+	@include text-rendering();
+	@include text-highlighting(black, white);
 }
 
 .mixin-test {
-  @include icon-apple;
+	@include icon-apple;
 }
 
 .mixin-test--after {
-  @include icon-apple;
+	@include icon-apple;
 }
