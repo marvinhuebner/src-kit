@@ -3,18 +3,13 @@ html(lang="de")
 	block vars
 	include ../templates/head/_head
 
-
 	if (typeof(bodyClass) !== 'undefined')
 		body(class="#{bodyClass}")
+			block template
 	else
 		body
+			block template
 
-	case template
-		when 1
-			include ../templates/page/1_default
-		when 2
-			include ../templates/page/2_2Columns
-		when 1
-			include ../templates/page/1_default
+
 
 	include ../templates/footer/_scripts
