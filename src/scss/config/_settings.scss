@@ -40,7 +40,7 @@
 //  35. Tooltip
 //  36. Top Bar
 
-@import 'util/util';
+@import '../bower_components/foundation-sites/scss/util/util';
 
 // 1. Global
 // ---------
@@ -55,6 +55,10 @@ $foundation-palette: (
   warning: #ffae00,
   alert: #ec5840,
 );
+
+@include add-foundation-colors;
+
+
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
@@ -73,7 +77,6 @@ $global-text-direction: ltr;
 $global-flexbox: false;
 $print-transparent-backgrounds: true;
 
-@include add-foundation-colors;
 
 // 2. Breakpoints
 // --------------
