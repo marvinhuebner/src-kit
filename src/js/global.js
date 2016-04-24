@@ -13,6 +13,7 @@ $(document).ready(function(){
 	 * Get the MediaQueries which are used in foundation
 	 * @type {string} get current MediaQuery
 	 */
+
 	var currentBreakpoint = Foundation.MediaQuery.current;
 
 	if (currentBreakpoint == 'small') {
