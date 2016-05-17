@@ -14,37 +14,37 @@ insert_final_newline = true
 
 # CSS-Files
 [*.css]
-indent_style = tab
+indent_style = space
 indent_size = 4
 
 # HTML-Files
 [*.html]
-indent_style = tab
-indent_size = 2
+indent_style = space
+indent_size = 4
+
+# JADE-Files
+[*.jade]
+indent_style = space
+indent_size = 4
 
 # TMPL-Files
 [*.tmpl]
-indent_style = tab
+indent_style = space
+indent_size = 4
+
+# LESS-Files
+[*.less]
+indent_style = space
 indent_size = 4
 
 # SCSS-Files
 [*.scss]
-indent_style = tab
+indent_style = space
 indent_size = 4
 
 # JS-Files
 [*.js]
-indent_style = tab
-indent_size = 4
-
-# Jade-Files
-[*.jade]
-indent_style = tab
-indent_size = 4
-
-# JSON-Files
-[*.json]
-indent_style = tab
+indent_style = space
 indent_size = 4
 
 # PHP-Files
@@ -52,41 +52,17 @@ indent_size = 4
 indent_style = space
 indent_size = 4
 
-# ReST-Files
-[*.rst]
-indent_style = space
-indent_size = 3
-
 # MD-Files
 [*.md]
 indent_style = space
 indent_size = 4
 
-# .travis.yml
-[{.travis.yml}]
+# YML-Files
+[*.yml]
 indent_style = space
-indent_size = 2
-
-[{package,bower}.json]
-indent_style = space
-indent_size = 2
-
-# TypoScript
-[*.ts]
-indent_style = space
-indent_size = 2
-
-# TypoScript txt
-[*.txt]
-indent_style = space
-indent_size = 2
-
-# XLF-Files
-[*.xlf]
-indent_style = tab
 indent_size = 4
 
-# SQL-Files
-[*.sql]
-indent_style = tab
+# package.json or .travis.yml
+[{package.json,.travis.yml}]
+indent_style = space
 indent_size = 2

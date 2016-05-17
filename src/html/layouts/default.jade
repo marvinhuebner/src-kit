@@ -1,13 +1,13 @@
 doctype html
 html(lang="de")
-	block vars
-	include ../templates/head/_head
+    block vars
+    include ../templates/head/_head
 
-	if (typeof(bodyClass) !== 'undefined')
-		body(class="#{bodyClass}")
-	else
-		body
+    if (typeof(bodyClass) !== 'undefined')
+        body(class="#{bodyClass}")
+    else
+        body
 
-	block template
+    block template
 
-	include ../templates/footer/_scripts
+    include ../templates/footer/_scripts
