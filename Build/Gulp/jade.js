@@ -3,7 +3,6 @@ var jade = require('gulp-jade');
 
 gulp.task('jade', jadeTask);
 
-
 function jadeTask() {
     var compileJade = function (basePath, destPath) {
         gulp.src(sourcePath + 'html/' + basePath + '/*.jade')
