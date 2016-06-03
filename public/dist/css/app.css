@@ -2416,7 +2416,7 @@ select[multiple] {
   border: 1px solid #e6e6e6;
   border-bottom: 0;
   background-color: #fefefe;
-  color: #2199e8;
+  color: #0a0a0a;
 }
 
 :last-child > .accordion-content:last-child {

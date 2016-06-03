@@ -22,7 +22,7 @@
 	"tests"
   ],
   "devDependencies": {
-	"foundation-sites": "^6.2.0",
+	"foundation-sites": "^6.2.3",
 	"fastclick": "^1.0.6",
 	"icon-collection": "https://git.bergwerk.ag/bergwerk/icon-collection.git#master"
   }
