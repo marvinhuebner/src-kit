@@ -3,10 +3,4 @@ body {
     @include text-highlighting(black, white);
 }
 
-.mixin-test {
-    @include icon-apple;
-}
 
-.mixin-test--after {
-    @include icon-apple;
-}

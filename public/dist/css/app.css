@@ -4866,12 +4866,4 @@ body ::-moz-selection {
   color: white;
 }
 
-.mixin-test:before {
-  content: "\EA01";
-}
-
-.mixin-test--after:before {
-  content: "\EA01";
-}
-
 /*# sourceMappingURL=app.css.map */
