@@ -4,7 +4,7 @@ var favicons = require('gulp-favicons');
 gulp.task('favicon', faviconTask);
 
 function faviconTask() {
-    gulp.src([sourcePath + 'assets/favicon/favicon.png'])
+    return gulp.src([sourcePath + 'assets/favicon/favicon.png'])
         .pipe(favicons({
             files: {
                 src: sourcePath + 'assets/favicon/favicon.png',

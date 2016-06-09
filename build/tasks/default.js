@@ -8,3 +8,7 @@ var defaultTasks = [
 ];
 
 gulp.task('default', defaultTasks);
+
+gulp.task('test', function(){
+    console.log('hallo');
+});

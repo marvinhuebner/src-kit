@@ -24,7 +24,12 @@ indent_size = 4
 
 # JADE-Files
 [*.jade]
-indent_style = space
+indent_style = tab
+indent_size = 4
+
+# PUG-Files
+[*.jade]
+indent_style = tab
 indent_size = 4
 
 # TMPL-Files
