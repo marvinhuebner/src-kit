@@ -1,11 +1,24 @@
 var gulp = require('gulp');
 var fs = require('fs');
-var gutil = require('gulp-util');
-var handyman = require('gulp-handyman');
+var ghandyman = require('gulp-handyman');
+var config = require('./gulp.config.json');
 
-//require('require-dir')('./node_modules/gulp-handyman/gulp');
-
-handyman.equalVersionModule({
+ghandyman.checkEqualVersion({
 	devDependencies: true,
 	module: 'gulp-util'
+});
+
+gulp.task('sass', function(){
+	ghandyman.handymanSass({
+		srcPath: 'test.scss',
+		destPath: 'css'
+	});
+});
+
+gulp.task('js', function(){
+	ghandyman.handymanJS({
+		srcPath: 'test.js',
+		fileName: 'app',
+		destPath: 'css/js'
+	})
 });
