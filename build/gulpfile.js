@@ -9,16 +9,54 @@ ghandyman.checkEqualVersion({
 });
 
 gulp.task('sass', function(){
-	ghandyman.handymanSass({
-		srcPath: 'test.scss',
-		destPath: 'css'
+	ghandyman.gulpSass({
+		srcPath: 'ztest/test.scss',
+		destPath: 'ztest/dist'
 	});
 });
 
 gulp.task('js', function(){
-	ghandyman.handymanJS({
-		srcPath: 'test.js',
+	ghandyman.gulpJs({
+		srcPath: 'ztest/test.js',
 		fileName: 'app',
-		destPath: 'css/js'
+		destPath: 'ztest/dist'
 	})
+});
+
+gulp.task('pug', function(){
+	ghandyman.gulpPug({
+		srcPath: 'ztest',
+		destPath: 'ztest/dist'
+	})
+});
+
+gulp.task('imgmin', function(){
+	ghandyman.gulpImgMin({
+		srcPath: 'ztest/img',
+		destPath: 'ztest/dist/img'
+	});
+});
+
+gulp.task('icons', function(){
+	ghandyman.gulpIconFont({
+		srcPath: 'ztest/icon',
+		cssFontPath: 'test',
+		destPathIconFont: 'ztest/iconfont',
+		destPathIconFontSass: 'ztest/dist'
+	})
+});
+
+gulp.task('favicon', function(){
+	ghandyman.gulpFavicon({
+		srcPath: 'ztest/favicon.png',
+		destPath: 'ztest/dist/favicon'
+	});
+});
+
+
+gulp.task('svg', function(){
+	ghandyman.gulpSvgSprite({
+		srcPath: 'ztest/icon',
+		destPath: 'ztest/dist/sprite'
+	});
 });
