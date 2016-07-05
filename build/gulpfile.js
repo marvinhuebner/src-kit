@@ -57,6 +57,8 @@ gulp.task('favicon', function(){
 gulp.task('svg', function(){
 	ghandyman.gulpSvgSprite({
 		srcPath: 'ztest/icon',
-		destPath: 'ztest/dist/sprite'
+		destPath: 'ztest/dist/sprite',
+		destPathSymbolSprite: 'ztest/dist/sprite/test',
+		destPathScss: 'ztest/dist/sprite/test.scss'
 	});
 });
