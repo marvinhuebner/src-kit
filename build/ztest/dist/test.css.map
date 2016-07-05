@@ -1,1 +1,0 @@
-{"version":3,"sources":["test.scss"],"names":[],"mappings":"AAAA;EAEE,aAAa;CACb;;AAGF;EAME,wBAAwB;CACxB;;AAPF;EAGG,aAAa;CACb","file":"test.css","sourcesContent":[".hallo {\n\ta {\n\t\tcolor: black;\n\t}\n}\n\nul {\n\tli {\n\t\ta {\n\t\t\tcolor: white;\n\t\t}\n\n\t\tbackground-color: green;\n\t}\n}\n"],"sourceRoot":"/source/"}
