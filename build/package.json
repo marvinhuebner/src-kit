@@ -14,14 +14,7 @@
   "author": {
     "name": "Marvin Hübner <mjh@bergwerk.ag>"
   },
-  "devDependencies": {
-    "require-dir": "^0.3.0",
-    "fs": "0.0.2",
-    "gulp": "^3.9.1",
-    "gulp-util": "^3.0.7",
-    "object-assign": "^4.1.0"
-  },
   "dependencies": {
-    "gulp-consolidate": "^0.1.2"
+    "gulp-handyman": "0.0.0"
   }
 }
