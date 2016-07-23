@@ -1,0 +1,18 @@
+{
+  "name": "src-kit",
+  "description": "src-kit",
+  "repository": {
+    "type": "git",
+    "url": "https://git.bergwerk.ag/bergwerk/src-kit"
+  },
+  "author": {
+    "name": "Marvin Hübner <mjh@bergwerk.ag>"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.13.0",
+    "gulp-handyman": "git+https://github.com/marvinhuebner/gulp-handyman.git#0.0.1",
+    "gulp-param": "^1.0.3",
+    "gulp-watch": "^4.3.8",
+    "merge-stream": "^1.0.0"
+  }
+}
