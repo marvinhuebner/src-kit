@@ -1,8 +1,0 @@
-{
-  "handyman": {
-    "sass": {
-      "srcPath": "test.scss",
-      "destPath": "css"
-    }
-  }
-}
