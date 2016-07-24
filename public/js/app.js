@@ -2,19 +2,19 @@
 
 $(document).ready(function () {
 	/**
-	 * Call Foundation JS
-	 */
+  * Call Foundation JS
+  */
 	$(document).foundation();
 
 	/**
-	 * Call Fastclick JS
-	 */
+  * Call Fastclick JS
+  */
 	FastClick.attach(document.body);
 
 	/**
-	 * Get the MediaQueries which are used in foundation
-	 * @type {string} get current MediaQuery
-	 */
+  * Get the MediaQueries which are used in foundation
+  * @type {string} get current MediaQuery
+  */
 
 	var currentBreakpoint = Foundation.MediaQuery.current;
 
@@ -39,10 +39,11 @@ $(document).ready(function () {
 	}
 });
 
-const myName = 'Marvin';
+var myName = 'Marvin';
 
-console.log(`hallo wie geht dir ${myName}`);
+console.log('hallo wie geht dir ' + myName);
 
-var test = () => {
+var test = function test() {
 	console.log('das ist ein test');
 };
+//# sourceMappingURL=app.js.map
