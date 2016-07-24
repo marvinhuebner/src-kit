@@ -19,9 +19,6 @@ ghandyman.checkEqualVersion({
 gulp.task('default', ['scss', 'js', 'pug', 'watch', 'browser-sync']);
 gulp.task('build', ['scss', 'js', 'pug']);
 
-gulp.task('test', () => {
-	console.log('geht');
-});
 
 gulp.task('js:temp', () => {
 	var libUtility = ghandyman.gulpJs({
