@@ -8,14 +8,14 @@ const config = {
 
 const files = {
 	jsFilesLibUtility: [
-		//config.pathToBower + 'jquery/dist/jquery.min.js'
+		config.pathToBower + 'jquery/dist/jquery.min.js'
 	],
 
 	jsFilesLibBabel: [
-		//config.pathToBower + 'foundation-sites/js/foundation.core.js',
+		config.pathToBower + 'foundation-sites/js/foundation.core.js',
 		//config.pathToBower + 'foundation-sites/js/foundation.util.box.js',
 		//config.pathToBower + 'foundation-sites/js/foundation.util.keyboard.js',
-		//config.pathToBower + 'foundation-sites/js/foundation.util.mediaQuery.js',
+		config.pathToBower + 'foundation-sites/js/foundation.util.mediaQuery.js',
 		//config.pathToBower + 'foundation-sites/js/foundation.util.motion.js',
 		//config.pathToBower + 'foundation-sites/js/foundation.util.nest.js',
 		//config.pathToBower + 'foundation-sites/js/foundation.util.timerAndImageLoader.js',
@@ -34,7 +34,7 @@ const files = {
 		//config.pathToBower + 'foundation-sites/js/foundation.orbit.js',
 		//config.pathToBower + 'foundation-sites/js/foundation.responsiveMenu.js',
 		//config.pathToBower + 'foundation-sites/js/foundation.responsiveToggle.js',
-		config.pathToBower + 'foundation-sites/js/foundation.reveal.js'
+		//config.pathToBower + 'foundation-sites/js/foundation.reveal.js'
 		//config.pathToBower + 'foundation-sites/js/foundation.slider.js',
 		//config.pathToBower + 'foundation-sites/js/foundation.sticky.js',
 		//config.pathToBower + 'foundation-sites/js/foundation.tabs.js',
@@ -43,7 +43,7 @@ const files = {
 	],
 
 	jsFilesLibNormal: [
-		//config.pathToBower + 'fastclick/lib/fastclick.js'
+		config.pathToBower + 'fastclick/lib/fastclick.js'
 	],
 
 	jsFilesOwn: [

@@ -1,5 +1,3 @@
-'use strict';
-
 $(document).ready(function () {
 	/**
 	 * Call Foundation JS
@@ -38,11 +36,3 @@ $(document).ready(function () {
 		// your code
 	}
 });
-
-const myName = 'Marvin';
-
-console.log(`hallo wie geht dir ${myName}`);
-
-var test = () => {
-	console.log('das ist ein test');
-};

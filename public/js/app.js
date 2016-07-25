@@ -38,12 +38,4 @@ $(document).ready(function () {
 		// your code
 	}
 });
-
-var myName = 'Marvin';
-
-console.log('hallo wie geht dir ' + myName);
-
-var test = function test() {
-	console.log('das ist ein test');
-};
 //# sourceMappingURL=app.js.map
