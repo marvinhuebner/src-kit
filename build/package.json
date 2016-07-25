@@ -9,6 +9,6 @@
     "name": "Marvin Hübner <mjh@bergwerk.ag>"
   },
   "devDependencies": {
-    "gulp-handyman": "git+https://github.com/marvinhuebner/gulp-handyman.git#0.0.2"
+    "gulp-handyman": "git+https://github.com/marvinhuebner/gulp-handyman.git#0.1.0"
   }
 }
