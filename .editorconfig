@@ -14,17 +14,17 @@ insert_final_newline = true
 
 # CSS-Files
 [*.css]
-indent_style = space
-indent_size = 4
+indent_style = tab
+indent_size = 2
 
 # HTML-Files
 [*.html]
-indent_style = space
-indent_size = 4
+indent_style = tabs
+indent_size = 2
 
-# JADE-Files
-[*.jade]
-indent_style = space
+# PUG-Files
+[*.pug]
+indent_style = tab
 indent_size = 4
 
 # TMPL-Files
@@ -34,17 +34,17 @@ indent_size = 4
 
 # LESS-Files
 [*.less]
-indent_style = space
+indent_style = tab
 indent_size = 4
 
 # SCSS-Files
 [*.scss]
-indent_style = space
+indent_style = tab
 indent_size = 4
 
 # JS-Files
 [*.js]
-indent_style = space
+indent_style = tab
 indent_size = 4
 
 # PHP-Files
