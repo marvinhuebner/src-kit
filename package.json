@@ -1,6 +1,7 @@
 {
   "name": "src-kit",
   "description": "src-kit is a frontend devkit",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://git.bergwerk.ag/bergwerk/src-kit"
