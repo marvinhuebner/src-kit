@@ -5,3 +5,4 @@
 .zip
 node_modules
 bower_components
+build/temp
