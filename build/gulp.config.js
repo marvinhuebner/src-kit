@@ -3,7 +3,7 @@ const path = importPaths.path;
 
 const config = {
 	minify: false,
-	localhost: 'src-kit.local'
+	localhost: ''
 };
 
 const files = {

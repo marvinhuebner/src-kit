@@ -73,7 +73,7 @@ gulp.task('js', function() {
 
 gulp.task('pug',function() {
 	return ghandyman.gulpPug({
-		pathToSrc: path.toSrc + 'html/pages',
+		pathToSrc: path.toSrc + 'pug/pages',
 		pathToDest: path.toDist
 	})
 });
@@ -89,7 +89,7 @@ gulp.task('scss', function() {
 gulp.task('watch', function() {
 	gulp.watch(path.toSrc + 'scss/**/*.scss', ['scss']);
 	gulp.watch(path.toSrc + 'js/**/*.js', ['js']);
-	gulp.watch(path.toSrc + 'html/**/*.pug', ['pug']);
+	gulp.watch(path.toSrc + 'pug/**/*.pug', ['pug']);
 
 	gulp.watch([
 		path.toDist + '**/*.css',
