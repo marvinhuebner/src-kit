@@ -1,6 +1,7 @@
 {
   "name": "src-kit",
   "description": "src-kit",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://git.bergwerk.ag/bergwerk/src-kit"
