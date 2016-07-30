@@ -2,8 +2,7 @@ const importPaths = require('./gulp.paths.js');
 const path = importPaths.path;
 
 const config = {
-	minify: false,
-	localhost: ''
+	minify: false
 };
 
 const files = {

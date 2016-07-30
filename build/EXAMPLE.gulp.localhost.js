@@ -3,4 +3,4 @@
  * @type {string}
  */
 
-module.exports = 'src-kit.local';
+module.exports = '';

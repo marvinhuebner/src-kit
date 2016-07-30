@@ -9,6 +9,11 @@ const merge = require('merge-stream');
 const importPaths = require('./gulp.paths.js');
 const importConfig = require('./gulp.config.js');
 
+try {
+	const localhost = require('./gulp.localhost.js');
+} catch (err) {
+}
+
 const config = importConfig.config;
 const files = importConfig.files;
 const path = importPaths.path;
@@ -21,7 +26,7 @@ ghandyman.checkEqualVersion({
 gulp.task('default', ['scss', 'js', 'pug', 'watch', 'browser-sync']);
 gulp.task('build', ['scss', 'js', 'pug']);
 
-gulp.task('js:temp', function() {
+gulp.task('js:temp', function () {
 	var libUtility = ghandyman.gulpJs({
 		fileName: 'libUtility',
 		pathToSrc: files.jsFilesLibUtility,
@@ -43,7 +48,7 @@ gulp.task('js:temp', function() {
 
 	return merge(libUtility, libBabel, libNormal);
 });
-gulp.task('js:temp:concat', ['js:temp'], function() {
+gulp.task('js:temp:concat', ['js:temp'], function () {
 	return ghandyman.gulpJs({
 		fileName: 'appLibs',
 		pathToSrc: [
@@ -55,13 +60,13 @@ gulp.task('js:temp:concat', ['js:temp'], function() {
 		pathToDest: path.toDist + 'js'
 	});
 });
-gulp.task('js:libs', ['js:temp:concat'], function() {
+gulp.task('js:libs', ['js:temp:concat'], function () {
 	return del([
 		'temp/**/*'
 	]);
 });
 
-gulp.task('js', function() {
+gulp.task('js', function () {
 	return ghandyman.gulpJs({
 		fileName: 'app',
 		pathToSrc: files.jsFilesOwn,
@@ -71,14 +76,14 @@ gulp.task('js', function() {
 	});
 });
 
-gulp.task('pug',function() {
+gulp.task('pug', function () {
 	return ghandyman.gulpPug({
 		pathToSrc: path.toSrc + 'pug/pages',
 		pathToDest: path.toDist
 	})
 });
 
-gulp.task('scss', function() {
+gulp.task('scss', function () {
 	return ghandyman.gulpSass({
 		pathToSrc: path.toSrc + 'scss/app.scss',
 		pathToDest: path.toDist + 'css',
@@ -86,7 +91,7 @@ gulp.task('scss', function() {
 	});
 });
 
-gulp.task('watch', function() {
+gulp.task('watch', function () {
 	gulp.watch(path.toSrc + 'scss/**/*.scss', ['scss']);
 	gulp.watch(path.toSrc + 'js/**/*.js', ['js']);
 	gulp.watch(path.toSrc + 'pug/**/*.pug', ['pug']);
@@ -98,16 +103,16 @@ gulp.task('watch', function() {
 	]).on('change', browserSync.reload)
 });
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function () {
 	var browserSyncConfig;
 
-	if (config.localhost) {
+	if (localhost) {
 		browserSyncConfig = {
-			proxy: config.localhost
+			proxy: localhost
 		}
-	}  else {
+	} else {
 		browserSyncConfig = {
-			server: '../public'
+			server: path.toDist
 		}
 	}
 
