@@ -24,7 +24,7 @@ ghandyman.checkEqualVersion({
 });
 
 gulp.task('default', ['scss', 'js', 'pug', 'watch', 'browser-sync']);
-gulp.task('build', ['scss', 'js', 'pug']);
+gulp.task('build', ['scss', 'js', 'pug', 'js:libs']);
 
 gulp.task('js:temp', function () {
 	var libUtility = ghandyman.gulpJs({
@@ -118,3 +118,13 @@ gulp.task('browser-sync', function () {
 
 	browserSync.init(browserSyncConfig);
 });
+
+gulp.task('iconfont', function(){
+	return ghandyman.gulpIconFont({
+		pathToSrc: path.toSrc + 'assets/iconfont',
+		cssFontPath: '../fonts/iconfont',
+		pathToDestIconFont: path.toDist + 'fonts/iconfont',
+		pathToDestIconFontSass: path.toSrc + 'scss/_generated'
+	})
+});
+
