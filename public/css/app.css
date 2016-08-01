@@ -4836,20 +4836,12 @@ table.hover tr:nth-of-type(even):hover {
   text-align: center;
 }
 
-.icon-shopping-cart:before {
+.icon-500px:before {
   content: "\EA01";
 }
 
-.icon-user:before {
-  content: "\EA02";
-}
-
-.icon-shopping-cart--after:after {
+.icon-500px--after:after {
   content: "\EA01";
-}
-
-.icon-user--after:after {
-  content: "\EA02";
 }
 
 /*# sourceMappingURL=app.css.map */
