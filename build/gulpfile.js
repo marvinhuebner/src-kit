@@ -10,7 +10,7 @@ const importPaths = require('./gulp.paths.js');
 const importConfig = require('./gulp.config.js');
 
 try {
-	const localhost = require('./gulp.localhost.js');
+	const localconf = require('./gulp.localconf.js');
 } catch (err) {
 }
 
@@ -24,7 +24,8 @@ ghandyman.checkEqualVersion({
 });
 
 gulp.task('default', ['scss', 'js', 'pug', 'watch', 'browser-sync']);
-gulp.task('build', ['scss', 'js', 'pug', 'js:libs']);
+
+gulp.task('build', ['scss', 'js', 'pug', 'js:libs', 'favicon', 'iconfont']);
 
 gulp.task('js:temp', function () {
 	var libUtility = ghandyman.gulpJs({
@@ -106,7 +107,7 @@ gulp.task('watch', function () {
 gulp.task('browser-sync', function () {
 	var browserSyncConfig;
 
-	if (localhost) {
+	if (localconf.localhost) {
 		browserSyncConfig = {
 			proxy: localhost
 		}
@@ -125,6 +126,13 @@ gulp.task('iconfont', function(){
 		cssFontPath: '../fonts/iconfont',
 		pathToDestIconFont: path.toDist + 'fonts/iconfont',
 		pathToDestIconFontSass: path.toSrc + 'scss/_generated'
+	})
+});
+
+gulp.task('favicon', function(){
+	return ghandyman.gulpFavicon({
+		pathToSrc: path.toSrc + 'assets/favicon/favicon.png',
+		pathToDest: path.toDist + 'assets/favicon'
 	})
 });
 
