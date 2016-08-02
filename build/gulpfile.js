@@ -107,9 +107,9 @@ gulp.task('watch', function () {
 gulp.task('browser-sync', function () {
 	var browserSyncConfig;
 
-	if (localconf.localhost) {
+	if (localconf) {
 		browserSyncConfig = {
-			proxy: localhost
+			proxy: localconf.localhost
 		}
 	} else {
 		browserSyncConfig = {
