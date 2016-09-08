@@ -9,11 +9,6 @@ const merge = require('merge-stream');
 const importPaths = require('./gulp.paths.js');
 const importConfig = require('./gulp.config.js');
 
-try {
-	const localconf = require('./gulp.localconf.js');
-} catch (err) {
-}
-
 const config = importConfig.config;
 const files = importConfig.files;
 const path = importPaths.path;
@@ -23,7 +18,9 @@ ghandyman.checkEqualVersion({
 	module: 'gulp-handyman'
 });
 
-gulp.task('default', ['scss', 'js', 'pug', 'watch', 'browser-sync']);
+gulp.task('default', ['scss', 'js', 'watch']);
+
+gulp.task('frontend', ['scss', 'js', 'watch:frontend', 'browser-sync']);
 
 gulp.task('build', ['scss', 'js', 'pug', 'js:libs', 'favicon', 'iconfont']);
 
@@ -107,11 +104,14 @@ gulp.task('watch', function () {
 gulp.task('browser-sync', function () {
 	var browserSyncConfig;
 
-	if (localconf) {
+	try {
+		const localconf = require('./gulp.localconf.js');
+
 		browserSyncConfig = {
 			proxy: localconf.localhost
 		}
-	} else {
+
+	} catch (err) {
 		browserSyncConfig = {
 			server: path.toDist
 		}
