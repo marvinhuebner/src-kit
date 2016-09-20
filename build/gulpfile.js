@@ -18,8 +18,6 @@ ghandyman.checkEqualVersion({
 	module: 'gulp-handyman'
 });
 
-gulp.task('css', ['scss']);
-
 gulp.task('default', ['scss', 'js', 'pug', 'watch']);
 
 gulp.task('frontend', ['scss', 'js', 'pug', 'watch:frontend', 'browser-sync']);
