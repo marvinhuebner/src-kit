@@ -10,3 +10,7 @@ build/gulp.localhost.js
 
 
 /public/css
+/public/js
+/public/fonts/iconfont
+/public/assets/favicon
+/public/*.html
