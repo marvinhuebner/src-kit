@@ -5,6 +5,7 @@ node_js:
 before_script:
   - npm install -g bower
   - cd build
+  - bower install
   - npm install
 
 script:
