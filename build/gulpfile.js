@@ -18,9 +18,9 @@ ghandyman.checkEqualVersion({
 	module: 'gulp-handyman'
 });
 
-gulp.task('default', ['scss', 'js', 'watch']);
+gulp.task('default', ['scss', 'js', 'pug', 'watch']);
 
-gulp.task('frontend', ['scss', 'js', 'watch:frontend', 'browser-sync']);
+gulp.task('frontend', ['scss', 'js', 'pug', 'watch:frontend', 'browser-sync']);
 
 gulp.task('build', ['scss', 'js', 'pug', 'js:libs', 'favicon', 'iconfont']);
 
@@ -93,6 +93,12 @@ gulp.task('watch', function () {
 	gulp.watch(path.toSrc + 'scss/**/*.scss', ['scss']);
 	gulp.watch(path.toSrc + 'js/**/*.js', ['js']);
 	gulp.watch(path.toSrc + 'pug/**/*.pug', ['pug']);
+});
+
+gulp.task('watch:frontend', function () {
+	gulp.watch(path.toSrc + 'scss/**/*.scss', ['scss']);
+	gulp.watch(path.toSrc + 'js/**/*.js', ['js']);
+	gulp.watch(path.toSrc + 'pug/**/*.pug', ['pug']);
 
 	gulp.watch([
 		path.toDist + '**/*.css',
@@ -100,6 +106,7 @@ gulp.task('watch', function () {
 		path.toDist + '**/*.html'
 	]).on('change', browserSync.reload)
 });
+
 
 gulp.task('browser-sync', function () {
 	var browserSyncConfig;
