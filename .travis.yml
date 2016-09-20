@@ -4,7 +4,7 @@ node_js:
 
 cache:
   directories:
-    - node_modules
+    - build/node_modules
 
 before_script:
   - npm install -g bower
