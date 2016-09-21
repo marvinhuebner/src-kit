@@ -1,6 +1,8 @@
 @import "../bower_components/foundation-sites/scss/foundation";
 @import "_config/config";
 
+@import "../bower_components/slick-carousel/slick/slick.scss";
+
 @include foundation-global-styles;
 @include foundation-grid;
 @include foundation-typography;
