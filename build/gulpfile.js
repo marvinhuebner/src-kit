@@ -22,26 +22,38 @@ gulp.task('default', ['scss', 'js', 'pug', 'watch']);
 
 gulp.task('frontend', ['scss', 'js', 'pug', 'watch:frontend', 'browser-sync']);
 
-gulp.task('build', ['scss', 'js', 'pug', 'js:libs', 'favicon', 'iconfont']);
+gulp.task('build', function(ci) {
+	if (ci) {
+		config.ci = true
+	}
+
+	gulp.start(
+		['scss', 'js', 'pug', 'js:libs', 'favicon', 'iconfont']
+	);
+});
+
 
 gulp.task('js:temp', function () {
 	var libUtility = ghandyman.gulpJs({
 		fileName: 'libUtility',
 		pathToSrc: files.jsFilesLibUtility,
-		pathToDest: 'temp'
+		pathToDest: 'temp',
+		plumberEnv: config.ci
 	});
 
 	var libBabel = ghandyman.gulpJs({
 		fileName: 'libBabel',
 		pathToSrc: files.jsFilesLibBabel,
 		pathToDest: 'temp',
-		babel: true
+		babel: true,
+		plumberEnv: config.ci
 	});
 
 	var libNormal = ghandyman.gulpJs({
 		fileName: 'libNormal',
 		pathToSrc: files.jsFilesLibNormal,
-		pathToDest: 'temp'
+		pathToDest: 'temp',
+		plumberEnv: config.ci
 	});
 
 	return merge(libUtility, libBabel, libNormal);
@@ -55,7 +67,8 @@ gulp.task('js:temp:concat', ['js:temp'], function () {
 			'temp/libNormal.js'
 		],
 		minify: config.minify,
-		pathToDest: path.toDist + 'js'
+		pathToDest: path.toDist + 'js',
+		plumberEnv: config.ci
 	});
 });
 gulp.task('js:libs', ['js:temp:concat'], function () {
@@ -70,14 +83,16 @@ gulp.task('js', function () {
 		pathToSrc: files.jsFilesOwn,
 		pathToDest: path.toDist + 'js',
 		babel: true,
-		minify: config.minify
+		minify: config.minify,
+		plumberEnv: config.ci
 	});
 });
 
 gulp.task('pug', function () {
 	return ghandyman.gulpPug({
 		pathToSrc: path.toSrc + 'pug/pages',
-		pathToDest: path.toDist
+		pathToDest: path.toDist,
+		plumberEnv: config.ci
 	})
 });
 
@@ -85,7 +100,8 @@ gulp.task('scss', function () {
 	return ghandyman.gulpSass({
 		pathToSrc: path.toSrc + 'scss/app.scss',
 		pathToDest: path.toDist + 'css',
-		fileName: 'app'
+		fileName: 'app',
+		plumberEnv: config.ci
 	});
 });
 
