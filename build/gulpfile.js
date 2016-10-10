@@ -18,11 +18,24 @@ ghandyman.checkEqualVersion({
 	module: 'gulp-handyman'
 });
 
+gulp.task('clean', function(){
+	return del([
+		path.toDist + '**/*'
+	], {
+		force: true
+	});
+});
+
+
 gulp.task('default', ['scss', 'js', 'pug', 'watch']);
 
 gulp.task('frontend', ['scss', 'js', 'pug', 'watch:frontend', 'browser-sync']);
 
-gulp.task('build', ['scss', 'js', 'pug', 'js:libs', 'favicon', 'iconfont']);
+gulp.task('build', ['clean'], function(){
+	gulp.start('build:static');
+});
+
+gulp.task('build:static', ['scss', 'js', 'pug', 'assets', 'js:libs', 'favicon', 'iconfont']);
 
 gulp.task('js:temp', function () {
 	var libUtility = ghandyman.gulpJs({
@@ -89,16 +102,20 @@ gulp.task('scss', function () {
 	});
 });
 
-gulp.task('watch', function () {
+function gulpWatch() {
 	gulp.watch(path.toSrc + 'scss/**/*.scss', ['scss']);
 	gulp.watch(path.toSrc + 'js/**/*.js', ['js']);
 	gulp.watch(path.toSrc + 'pug/**/*.pug', ['pug']);
+	gulp.watch(path.toSrc + 'assets/**/*', ['assets']);
+	gulp.watch(path.toSrc + 'generate/iconfont/**/*', ['iconfont']);
+}
+
+gulp.task('watch', function () {
+	gulpWatch();
 });
 
 gulp.task('watch:frontend', function () {
-	gulp.watch(path.toSrc + 'scss/**/*.scss', ['scss']);
-	gulp.watch(path.toSrc + 'js/**/*.js', ['js']);
-	gulp.watch(path.toSrc + 'pug/**/*.pug', ['pug']);
+	gulpWatch();
 
 	gulp.watch([
 		path.toDist + '**/*.css',
@@ -106,7 +123,6 @@ gulp.task('watch:frontend', function () {
 		path.toDist + '**/*.html'
 	]).on('change', browserSync.reload)
 });
-
 
 gulp.task('browser-sync', function () {
 	var browserSyncConfig;
@@ -129,7 +145,7 @@ gulp.task('browser-sync', function () {
 
 gulp.task('iconfont', function(){
 	return ghandyman.gulpIconFont({
-		pathToSrc: path.toSrc + 'assets/iconfont',
+		pathToSrc: path.toSrc + 'generate/iconfont',
 		cssFontPath: '../fonts/iconfont',
 		pathToDestIconFont: path.toDist + 'fonts/iconfont',
 		pathToDestIconFontSass: path.toSrc + 'scss/_generated'
@@ -138,8 +154,19 @@ gulp.task('iconfont', function(){
 
 gulp.task('favicon', function(){
 	return ghandyman.gulpFavicon({
-		pathToSrc: path.toSrc + 'assets/favicon/favicon.png',
-		pathToDest: path.toDist + 'assets/favicon'
+		pathToSrc: path.toSrc + 'generate/favicon/favicon.png',
+		pathToDest: path.toDist + 'generate/favicon'
 	})
 });
 
+
+gulp.task('assets', function(){
+	function assets() {
+		return gulp.src(path.toSrc + 'assets/**/*')
+			.pipe(gulp.dest(path.toDist))
+	}
+
+	const files = assets();
+
+	return merge(files);
+});
