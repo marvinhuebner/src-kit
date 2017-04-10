@@ -39,17 +39,13 @@
                       text-align: center;
                   }
 
-@mixin icon-shopping-cart() {&:before { content: "\EA01" }}
-@mixin icon-user() {&:before { content: "\EA02" }}
+@mixin icon-500px() {&:before { content: "\EA01" }}
 
 
-@mixin icon-shopping-cart--after() {&:after { content: "\EA01" }}
-@mixin icon-user--after() {&:after { content: "\EA02" }}
+@mixin icon-500px--after() {&:after { content: "\EA01" }}
 
 
-.icon-shopping-cart { @include icon-shopping-cart(); }
-.icon-user { @include icon-user(); }
+.icon-500px { @include icon-500px(); }
 
 
-.icon-shopping-cart--after { @include icon-shopping-cart--after(); }
-.icon-user--after { @include icon-user--after(); }
+.icon-500px--after { @include icon-500px--after(); }

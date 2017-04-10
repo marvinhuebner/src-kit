@@ -6,3 +6,6 @@
 node_modules
 bower_components
 build/temp
+build/gulp.localhost.js
+
+public/

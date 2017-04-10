@@ -4,6 +4,6 @@
 
 Before you start:
 
-`$ cd build` <br> <br>
-`$ npm install` <br> <br>
+`$ cd build` <br>
+`$ npm install` <br>
 `$ bower install`

@@ -18,10 +18,26 @@ ghandyman.checkEqualVersion({
 	module: 'gulp-handyman'
 });
 
-gulp.task('default', ['scss', 'js', 'pug', 'watch', 'browser-sync']);
-gulp.task('build', ['scss', 'js', 'pug']);
+gulp.task('clean', function(){
+	return del([
+		path.toDist + '**/*'
+	], {
+		force: true
+	});
+});
 
-gulp.task('js:temp', function() {
+
+gulp.task('default', ['scss', 'js', 'pug', 'watch']);
+
+gulp.task('frontend', ['scss', 'js', 'pug', 'watch:frontend', 'browser-sync']);
+
+gulp.task('build', ['clean'], function(){
+	gulp.start('build:static');
+});
+
+gulp.task('build:static', ['scss', 'js', 'pug', 'assets', 'js:libs', 'favicon', 'iconfont']);
+
+gulp.task('js:temp', function () {
 	var libUtility = ghandyman.gulpJs({
 		fileName: 'libUtility',
 		pathToSrc: files.jsFilesLibUtility,
@@ -43,7 +59,7 @@ gulp.task('js:temp', function() {
 
 	return merge(libUtility, libBabel, libNormal);
 });
-gulp.task('js:temp:concat', ['js:temp'], function() {
+gulp.task('js:temp:concat', ['js:temp'], function () {
 	return ghandyman.gulpJs({
 		fileName: 'appLibs',
 		pathToSrc: [
@@ -55,13 +71,13 @@ gulp.task('js:temp:concat', ['js:temp'], function() {
 		pathToDest: path.toDist + 'js'
 	});
 });
-gulp.task('js:libs', ['js:temp:concat'], function() {
+gulp.task('js:libs', ['js:temp:concat'], function () {
 	return del([
 		'temp/**/*'
 	]);
 });
 
-gulp.task('js', function() {
+gulp.task('js', function () {
 	return ghandyman.gulpJs({
 		fileName: 'app',
 		pathToSrc: files.jsFilesOwn,
@@ -71,14 +87,14 @@ gulp.task('js', function() {
 	});
 });
 
-gulp.task('pug',function() {
+gulp.task('pug', function () {
 	return ghandyman.gulpPug({
-		pathToSrc: path.toSrc + 'html/pages',
+		pathToSrc: path.toSrc + 'pug/pages',
 		pathToDest: path.toDist
 	})
 });
 
-gulp.task('scss', function() {
+gulp.task('scss', function () {
 	return ghandyman.gulpSass({
 		pathToSrc: path.toSrc + 'scss/app.scss',
 		pathToDest: path.toDist + 'css',
@@ -86,10 +102,20 @@ gulp.task('scss', function() {
 	});
 });
 
-gulp.task('watch', function() {
+function gulpWatch() {
 	gulp.watch(path.toSrc + 'scss/**/*.scss', ['scss']);
 	gulp.watch(path.toSrc + 'js/**/*.js', ['js']);
-	gulp.watch(path.toSrc + 'html/**/*.pug', ['pug']);
+	gulp.watch(path.toSrc + 'pug/**/*.pug', ['pug']);
+	gulp.watch(path.toSrc + 'assets/**/*', ['assets']);
+	gulp.watch(path.toSrc + 'generate/iconfont/**/*', ['iconfont']);
+}
+
+gulp.task('watch', function () {
+	gulpWatch();
+});
+
+gulp.task('watch:frontend', function () {
+	gulpWatch();
 
 	gulp.watch([
 		path.toDist + '**/*.css',
@@ -98,18 +124,49 @@ gulp.task('watch', function() {
 	]).on('change', browserSync.reload)
 });
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function () {
 	var browserSyncConfig;
 
-	if (config.localhost) {
+	try {
+		const localconf = require('./gulp.localconf.js');
+
 		browserSyncConfig = {
-			proxy: config.localhost
+			proxy: localconf.localhost
 		}
-	}  else {
+
+	} catch (err) {
 		browserSyncConfig = {
-			server: '../public'
+			server: path.toDist
 		}
 	}
 
 	browserSync.init(browserSyncConfig);
+});
+
+gulp.task('iconfont', function(){
+	return ghandyman.gulpIconFont({
+		pathToSrc: path.toSrc + 'generate/iconfont',
+		cssFontPath: '../fonts/iconfont',
+		pathToDestIconFont: path.toDist + 'fonts/iconfont',
+		pathToDestIconFontSass: path.toSrc + 'scss/_generated'
+	})
+});
+
+gulp.task('favicon', function(){
+	return ghandyman.gulpFavicon({
+		pathToSrc: path.toSrc + 'generate/favicon/favicon.png',
+		pathToDest: path.toDist + 'generate/favicon'
+	})
+});
+
+
+gulp.task('assets', function(){
+	function assets() {
+		return gulp.src(path.toSrc + 'assets/**/*')
+			.pipe(gulp.dest(path.toDist))
+	}
+
+	const files = assets();
+
+	return merge(files);
 });
