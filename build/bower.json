@@ -22,7 +22,7 @@
     "tests"
   ],
   "devDependencies": {
-    "foundation-sites": "6.2.3",
+    "foundation-sites": "~6.3.0",
     "fastclick": "^1.0.6"
   }
 }
