@@ -41,3 +41,17 @@
 .y-center {
 	@include y-center();
 }
+
+// detect ie or edge browser
+
+@mixin ie() {
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		@content;
+	}
+}
+
+@mixin edge() {
+	@supports (-ms-accelerator:true) {
+		@content;
+	}
+}
